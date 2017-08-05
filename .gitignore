@@ -1,1 +1,3 @@
 api-build/src/
+.env
+sample.env
