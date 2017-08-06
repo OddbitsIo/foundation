@@ -15,7 +15,7 @@ clean:
 		git -C $(API_SRC) clean -fdx; \
 	fi
 	@docker-compose down
-stamyimage:mytagrt:
+start:
 	@if [[ "$(docker ps -aq -f name=oddbits_api 2> /dev/null)" == "" ]]; then \
 		docker-compose up -d; \
 	else \
