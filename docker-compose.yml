@@ -2,6 +2,7 @@ version: "3"
 services:
   db:
     image: mongo
+    container_name: oddbits_db
     ports:
       - "27017:27017"
     environment:
@@ -13,6 +14,7 @@ services:
     build:
       context: ./api-build
       dockerfile: Dockerfile
+    container_name: oddbits_api
     ports:
       - "${API_PORT}:${API_PORT}"
     env_file:
