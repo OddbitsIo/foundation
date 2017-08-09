@@ -1,13 +1,22 @@
 API_SRC=api-build/src
+ADMIN_SRC=admin-build/src
 default: build
-build:
+build-api:
 	@if [ -d $(API_SRC) ]; then \
 		git -C $(API_SRC) pull; \
 	else \
 		git clone https://github.com/OddbitsIo/api.git $(API_SRC); \
 	fi
 	@cd $(API_SRC); glide install
-	@docker-compose build
+	@docker-compose build api
+build-admin:
+	@if [ -d $(ADMIN_SRC) ]; then \
+		git -C $(ADMIN_SRC) pull; \
+	else \
+		git clone https://github.com/OddbitsIo/admin.git $(ADMIN_SRC); \
+	fi
+	@cd $(ADMIN_SRC); npm install; ng build
+	@docker-compose build admin
 clean:
 	@if [ -d $(API_SRC) ]; then \
 		git -C $(API_SRC) fetch origin; \
