@@ -1,0 +1,8 @@
+version: "3"
+services:
+  api:
+    image: golang:1.8
+    volumes:
+      - ./api/src:/go/src/github.com/oddbitsio/api
+    working_dir: /go/src
+    command: bash -c "go test --cover -v github.com/oddbitsio/api/rest-server"

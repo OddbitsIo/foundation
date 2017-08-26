@@ -12,7 +12,7 @@ services:
       - .env
   api:
     build:
-      context: ./api-build
+      context: ./api
       dockerfile: Dockerfile
     container_name: oddbits_api
     ports:
@@ -23,7 +23,7 @@ services:
       - db
   admin:
     build:
-      context: ./admin-build
+      context: ./admin
       dockerfile: Dockerfile
     container_name: oddbits_admin
     ports:
